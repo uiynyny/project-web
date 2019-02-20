@@ -3,9 +3,18 @@ import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, LineSeries
 
 const Chart = (props) => {
 
-    const dataArr = props.data.map((d)=> {
-        return {x: d.year + '/' + d.quarter,
-            y: parseFloat(d.count/1000)}
+    // const dataArr = props.data.map((d) => {
+    //     return {
+    //         x: d.year + '/' + d.quarter,
+    //         y: parseFloat(d.count / 1000)
+    //     }
+    // });
+
+    const dataArr = props.data.map(d=>{
+        return {
+            x: d.date,
+            y: d.rates.CAD
+        }
     });
 
     return (
@@ -13,10 +22,10 @@ const Chart = (props) => {
             xType="ordinal"
             width={1000}
             height={500}>
-            <VerticalGridLines />
-            <HorizontalGridLines />
-            <XAxis title="Period of time(year and quarter)" />
-            <YAxis title="Number of pull requests (thousands)" />
+            <VerticalGridLines/>
+            <HorizontalGridLines/>
+            <XAxis title="time"/>
+            <YAxis title="rates"/>
             <LineSeries
                 data={dataArr}
                 style={{stroke: 'violet', strokeWidth: 3}}/>

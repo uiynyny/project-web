@@ -2,43 +2,63 @@ import React, {Component} from 'react';
 import './App.css';
 import Chart from './components/chart'
 
-const API_URL = "https://nataliia-radina.github.io/react-vis-example/";
-
-
 class App extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-            results: [],
+            data: [],
         };
+    }
+
+    fetchData(date) {
+        //fetch mock data from api
+        return fetch('https://api.exchangeratesapi.io/' + date + '?base=USD&symbols=CAD')
+        //convert to json file
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("response error");
+                }
+            })
+            //
+            .then((responseJson) => {
+                let item = {
+                    date: responseJson.date,
+                    rates: responseJson.rates
+                };
+                if (this.state.data.indexOf(item) === -1) {
+                    this.state.data.push(item);
+                    this.setState({
+                        data: this.state.data
+                    })
+                }
+            }).catch((error) => {
+                console.log(error)
+            })
     }
 
 
     componentDidMount() {
-        fetch(API_URL)
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    throw new Error('something went wrong');
-                }
-            })
-            .then(res => this.setState({
-                    results: res.results.filter(r => {
-                        return r.name === 'JavaScript';
-                    })
-                })
-            )
+        //create a start time frame
+        let start = new Date('2010-01-01');
+
+        setInterval(() => {
+            //extract the date from the format and increment the date
+            let date = start.toJSON().split('T')[0];
+            this.fetchData(date);
+            start.setDate(start.getDate() + 1)
+        }, 1000)
     }
 
     render() {
-        const {results} = this.state;
         return (
             <div className="App">
-                <Chart data={results}/>
+                <Chart data={this.state.data}/>
             </div>
         );
     }
 }
+
 export default App;
