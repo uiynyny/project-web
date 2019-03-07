@@ -1,6 +1,10 @@
 import React from 'react';
 import './App.css';
-import ChartComponent from "./components/ChartComponent";
+import Amplify from 'aws-amplify';
+import aws_exports from './aws-exports';
+import {withAuthenticator} from "aws-amplify-react/";
+
+Amplify.configure(aws_exports);
 
 class App extends React.Component {
 
@@ -8,7 +12,6 @@ class App extends React.Component {
         return (
             <div>
                 <h1>Home</h1>
-                <ChartComponent/>
             </div>
         );
     }
@@ -16,4 +19,4 @@ class App extends React.Component {
 
 App.propTypes = {};
 
-export default App;
+export default withAuthenticator(App, {includeGreetings: true});
