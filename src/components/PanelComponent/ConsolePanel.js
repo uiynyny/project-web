@@ -3,7 +3,7 @@ import PubNubReact from "pubnub-react";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
-import {Col, Divider, Progress, Row, Skeleton, Statistic, Typography} from "antd";
+import {Col, Divider, Progress, Row, Skeleton, Statistic, Typography, Modal, Button} from "antd";
 
 
 const myChannel = 'cloudChannel';
@@ -14,6 +14,7 @@ export default class ConsolePanel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            show: false,
             deviceID: null,
             timestamp: null,
             BreathRate: {val: 0, len: 0},
@@ -28,6 +29,12 @@ export default class ConsolePanel extends React.Component {
         this.pubnub.init(this);
     }
 
+    handleClose=()=>{
+        this.setState({show:false})
+    }
+
+    getRunningAvg = (item) => (item.len * item.val + item.val) / (item.len + 1);
+
     //fetching data before the component mount
     componentWillMount() {
         this.pubnub.subscribe({channels: [myChannel], withPresence: true});
@@ -41,7 +48,6 @@ export default class ConsolePanel extends React.Component {
             }
             this.chart.addData(tempdata, (this.chart.data.length > 60) ? 1 : 0);
 
-
             this.setState({
                 deviceID: msg.message.deviceID,
                 timestamp: msg.message.timestamp,
@@ -49,10 +55,12 @@ export default class ConsolePanel extends React.Component {
                 HeartRate: {val: msg.message.HeartRate, len: this.state.HeartRate.len + 1},
                 Falldetected: {val: msg.message.Falldetected, len: this.state.Falldetected.len + 1},
             })
+
+            if(this.state.Falldetected.val===1){
+                this.setState({show:true})
+            }
         });
     }
-
-    getRunningAvg = (item) => (item.len * item.val + item.val) / (item.len + 1);
 
     componentDidMount() {
         am4core.useTheme(am4themes_animated)
@@ -142,6 +150,9 @@ export default class ConsolePanel extends React.Component {
     render() {
         return (
             <div style={{padding: 24, background: '#fff', minHeight: 360}} className={'mainContent'}>
+                <Modal title="Title" visible={this.state.show} onOk={this.handleClose} onCancel={this.handleClose}>
+                    <p>Fall detected</p>
+                </Modal>
                 <Row gutter={8} className={'firstRow'} justify={'center'}>
                     <Col sm={24} md={18} align={'middle'}>
                         <Title level={4}>Real time Breath rate</Title>
@@ -162,7 +173,6 @@ export default class ConsolePanel extends React.Component {
                                   format={hr => `Hr:${Math.round(hr)}`}
                                   default={'default'} strokeColor={'#D32F2F'}/>
                         <Statistic title={'Average Heart Rate'} value={this.getRunningAvg(this.state.HeartRate)}/>
-
                     </Col>
                     <Col sm={24} md={8} align={'middle'} className={'BreathRate'}>
                         <Title level={4}>Breath rate showed</Title>

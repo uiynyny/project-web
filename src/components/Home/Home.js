@@ -102,9 +102,9 @@ class Home extends React.Component {
                 </Row>
 
                 <div className="home-content">
-                    <h1 style={{paddingTop: 50, paddingLeft: 430, color: '#204871'}}>Contact-less Monitoring System for
+                    <h1 style={{color: '#204871'}} align="center">Contact-less Monitoring System for
                         Seniors</h1>
-                    <div className="wrap">
+                    <div className="wrap" align="center">
                         <div className="fleft">
                             <ColumnData contents={contentl}/>
                         </div>

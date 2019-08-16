@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link, Route, Switch} from "react-router-dom";
-import {Layout, Menu, Icon, Typography, List,} from 'antd';
+import {Layout, Menu, Icon, Typography, List, Modal,} from 'antd';
 import Amplify from "aws-amplify";
 import awsmobile from "../aws-exports";
 import {withAuthenticator} from "aws-amplify-react";
@@ -24,16 +24,13 @@ class DashBoard extends React.Component {
 
 
     onCollapse = (collapsed) => {
-        console.log(collapsed);
         this.setState({collapsed});
     };
 
     onMenuClick = (event) => {
-        console.log(event);
         // event.key give the key selected
         // event.keyPath give the full path to the sub item selected
         this.setState({key: event.key})
-
     };
 
     render() {
@@ -78,6 +75,7 @@ class DashBoard extends React.Component {
                         <Route path={`${match.url}/file`} component={S3Content}/>
                     </Content>
                 </Layout>
+                
             </Layout>
         );
     }
