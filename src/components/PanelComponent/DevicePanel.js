@@ -8,7 +8,7 @@ export default class DevicePanel extends React.Component {
 
     componentWillMount() {
         this.listData = [];
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 1; i++) {
             this.listData.push({
                 deviceID: i,
                 href: `${this.props.match.url}/${i}`,

@@ -3,7 +3,7 @@ import PubNubReact from "pubnub-react";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
-import {Col, Divider, Progress, Row, Skeleton, Statistic, Typography, Modal, Button} from "antd";
+import {Col, Divider, Progress, Row, Skeleton, Statistic, Typography, Modal, Descriptions } from "antd";
 
 
 const myChannel = 'cloudChannel';
@@ -159,8 +159,13 @@ export default class ConsolePanel extends React.Component {
                         <div id="chartdiv" style={{width: "100%", height: "300px"}}></div>
                     </Col>
                     <Col sm={24} md={6} align={'middle'}>
-                        <Title level={4}>Patient${} info</Title>
-                        <Skeleton active={true}/>
+                        <Descriptions title={`Patient${0} info`} column={{ xxl: 4, xl: 3, lg: 2, md: 1, sm: 1, xs: 1 }}>
+                            <Descriptions.Item label="DeviceID">001</Descriptions.Item>
+                            <Descriptions.Item label="ID">2j3hc819sd1</Descriptions.Item>
+                            <Descriptions.Item label="Phone">6130000000</Descriptions.Item>
+                            <Descriptions.Item label="Address">177 Huron Rd.</Descriptions.Item>
+                        </Descriptions>
+                        {/* <Skeleton active={true}/> */}
                     </Col>
                 </Row>
                 <Divider type={"horizontal"}/>
