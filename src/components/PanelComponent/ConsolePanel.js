@@ -19,7 +19,7 @@ export default class ConsolePanel extends React.Component {
             timestamp: null,
             BreathRate: {val: 0, len: 0},
             HeartRate: {val: 0, len: 0},
-            Falldetected: {val: 0, len: 0},
+            Falldetected: {val: 0, len: 0, lastDetect:'NA'},
             series: [],
         };
         this.pubnub = new PubNubReact({
@@ -53,11 +53,14 @@ export default class ConsolePanel extends React.Component {
                 timestamp: msg.message.timestamp,
                 BreathRate: {val: msg.message.BreathRate, len: this.state.BreathRate.len + 1},
                 HeartRate: {val: msg.message.HeartRate, len: this.state.HeartRate.len + 1},
-                Falldetected: {val: msg.message.Falldetected, len: this.state.Falldetected.len + 1},
+                Falldetected: {val: msg.message.Falldetected, len: this.state.Falldetected.len + 1,lastDetect:this.state.Falldetected.lastDetect},
             })
 
             if(this.state.Falldetected.val===1){
-                this.setState({show:true})
+                this.setState({
+                    show:true,
+                    Falldetected:{lastDetect:tempdata.date.toLocaleString()}
+                })
             }
         });
     }
@@ -165,7 +168,6 @@ export default class ConsolePanel extends React.Component {
                             <Descriptions.Item label="Phone">6130000000</Descriptions.Item>
                             <Descriptions.Item label="Address">177 Huron Rd.</Descriptions.Item>
                         </Descriptions>
-                        {/* <Skeleton active={true}/> */}
                     </Col>
                 </Row>
                 <Divider type={"horizontal"}/>
@@ -190,7 +192,10 @@ export default class ConsolePanel extends React.Component {
                     </Col>
                     <Col sm={24} md={8} align={'middle'}>
                         <Title level={4}>Health condition summary</Title>
-                        <Skeleton active={true}/>
+                        {/* <Skeleton active={true}/> */}
+                        <Descriptions title={`Patient${0} info`} column={{ xxl: 4, xl: 3, lg: 2, md: 1, sm: 1, xs: 1 }}>
+                            <Descriptions.Item label="last fall detect">{this.state.Falldetected.lastDetect}</Descriptions.Item>
+                        </Descriptions>
                     </Col>
                 </Row>
             </div>

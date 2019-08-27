@@ -2,37 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ece16fe-15fd-4f9f-a5de-9ce6f1dec7d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/LineStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Breathing/Breathing.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Breathing/Breathing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CustomHeader/CustomHeader.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CustomHeader/CustomHeader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/FAQ/Faq.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/FAQ/Faq.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Falls/Falls.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Falls/Falls.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/Home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LineChartComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PanelComponent/ConsolePanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PanelComponent/DevicePanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PanelComponent/S3Content.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/data.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/pubnub.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChartComponent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/chart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/contact.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/notfound.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/notfound.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/router.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -187,6 +157,8 @@
       <workItem from="1556483673785" duration="19869000" />
       <workItem from="1561915286945" duration="378000" />
       <workItem from="1565752495082" duration="335000" />
+      <workItem from="1566778565710" duration="282000" />
+      <workItem from="1566821470087" duration="59000" />
     </task>
     <task id="LOCAL-00001" summary="route test">
       <created>1550951584390</created>
