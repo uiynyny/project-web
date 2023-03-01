@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@amcharts/amcharts4": "^4.4.1",
-    "antd": "^3.16.2",
+    "antd": "^5.2.3",
     "aws-amplify": "^1.1.22",
     "aws-amplify-react": "^2.3.2",
     "aws-sdk": "^2.416.0",
